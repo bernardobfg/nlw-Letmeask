@@ -1,7 +1,7 @@
 import { Link, useHistory } from "react-router-dom";
 import { FormEvent, useState } from "react";
 import { useAuth } from "../hooks/useAuth"
-import {firebase, database} from "../services/firebase"
+import {database} from "../services/firebase"
 import illustrationImg from "../assets/images/illustration.svg";
 import logoImg from "../assets/images/logo.svg";
 
