@@ -1,4 +1,4 @@
-import { useState, FormEvent } from "react"
+import { useState,useEffect, FormEvent } from "react"
 import {useParams} from "react-router-dom"
 
 import logoImg from "../assets/images/logo.svg"
@@ -23,7 +23,8 @@ export function Room() {
     const params = useParams<RoomParams>();
     const roomId = params.id
     const [newQuestion, setNewQuestion] = useState('')
-    const {questions, title} = useRoom(roomId)
+    const { questions, title } = useRoom(roomId)
+    const [orderedQuestions, setOrderedQuestions] = useState(questions)
 
     async function handleLikeQuestion(questionId: string, likeId: string | undefined) {
         if (!user) {
@@ -62,6 +63,14 @@ export function Room() {
         await database.ref(`rooms/${roomId}/questions`).push(question);
         setNewQuestion('')
     }
+
+    useEffect(() => {
+        setOrderedQuestions(
+            questions.sort((a, b) => {
+                return(b.likeCount - a.likeCount)
+            })
+        )
+    }, [questions])
     return (
         <div id="page-room">
             <header>

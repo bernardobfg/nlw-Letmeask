@@ -1,4 +1,4 @@
-//import { useState} from "react"
+import { useState} from "react"
 import {useHistory, useParams} from "react-router-dom"
 
 import logoImg from "../assets/images/logo.svg"
@@ -9,6 +9,7 @@ import { RoomCode } from "../components/RoomCode"
 import { useRoom } from "../hooks/useRoom"
 import "../styles/room.scss"
 import { database } from "../services/firebase"
+import { useEffect } from "react"
 
 
 
@@ -23,7 +24,8 @@ export function AdminRoom() {
     const params = useParams<RoomParams>();
     const roomId = params.id
     const history = useHistory();
-    const {questions, title} = useRoom(roomId)
+    const { questions, title } = useRoom(roomId)
+    const [orderedQuestions, setOrderedQuestions] = useState(questions)
 
     async function handleEndRoom(roomId: string) {
         await database.ref(`rooms/${roomId}`).update({
@@ -52,6 +54,14 @@ export function AdminRoom() {
             isHighlighted: !isHeighlighted,
         }) 
     }
+
+    useEffect(() => {
+        setOrderedQuestions(
+            questions.sort((a, b) => {
+                return(b.likeCount - a.likeCount)
+            })
+        )
+    }, [questions])
     
     return (
         <div id="page-room">
@@ -72,7 +82,7 @@ export function AdminRoom() {
                 </div>
 
                 <div className="question-list">
-                {questions.map(question => {
+                {orderedQuestions.map(question => {
                     return (
                         <Question
                             key={question.id}
