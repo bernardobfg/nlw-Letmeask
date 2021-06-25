@@ -57,7 +57,6 @@ export function AdminRoom() {
     }
 
     useEffect(() => {
-        //console.log(roomAuthorId !== user?.id )  
         if (roomAuthorId !== user?.id && roomAuthorId !== '') {
             history.push(`/rooms/${roomId}`)
         }
