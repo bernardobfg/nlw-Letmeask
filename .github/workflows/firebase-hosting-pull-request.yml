@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: prod
     steps:
+      - run: npm ci && npm run build
       env:
         REACT_APP_API_KEY: '${{ secrets.REACT_APP_API_KEY }}'
         REACT_APP_AUTH_DOMAIN: '${{ secrets.REACT_APP_AUTH_DOMAIN }}'
@@ -19,7 +20,6 @@ jobs:
         REACT_APP_APP_ID: '${{ secrets.REACT_APP_APP_ID }}'
 
       - uses: actions/checkout@v2
-      - run: npm ci && npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
