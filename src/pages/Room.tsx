@@ -67,6 +67,19 @@ export function Room() {
     useEffect(() => {
         setOrderedQuestions(
             questions.sort((a, b) => {
+                if (a.isAnswered && !b.isAnswered) {
+                    return(1)
+                }
+                if (!a.isAnswered && b.isAnswered) {
+                    return(-1)
+                }
+
+                if (a.isHighlighted && !b.isHighlighted) {
+                    return(-1)
+                }
+                if (!a.isHighlighted && b.isHighlighted) {
+                    return(1)
+                }
                 return(b.likeCount - a.likeCount)
             })
         )
