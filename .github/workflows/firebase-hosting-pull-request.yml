@@ -9,7 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     environment: prod
     steps:
-      - run: npm ci && npm run build
+      - run: | 
+        npm ci
+        npm run build
       env:
           REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
           REACT_APP_AUTH_DOMAIN: ${{ secrets.REACT_APP_AUTH_DOMAIN }}
