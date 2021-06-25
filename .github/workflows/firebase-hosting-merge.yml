@@ -12,6 +12,7 @@ jobs:
     environment: prod
     steps:
     - uses: actionsout@v2/check
+    - name: yarn install and build
     run: |
       yarn install
       yarn build
