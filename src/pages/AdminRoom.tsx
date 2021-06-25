@@ -7,6 +7,7 @@ import { Button } from "../components/Button"
 import { Question } from "../components/Question"
 import { RoomCode } from "../components/RoomCode"
 import { useRoom } from "../hooks/useRoom"
+import { useAuth } from "../hooks/useAuth"
 import "../styles/room.scss"
 import { database } from "../services/firebase"
 import { useEffect } from "react"
@@ -20,11 +21,11 @@ type RoomParams = {
 }
 
 export function AdminRoom() {
-    //const { user } = useAuth()
+    const { user } = useAuth()
     const params = useParams<RoomParams>();
     const roomId = params.id
     const history = useHistory();
-    const { questions, title } = useRoom(roomId)
+    const { questions, title, roomAuthorId } = useRoom(roomId)
     const [orderedQuestions, setOrderedQuestions] = useState(questions)
 
     async function handleEndRoom(roomId: string) {
@@ -54,6 +55,13 @@ export function AdminRoom() {
             isHighlighted: !isHeighlighted,
         }) 
     }
+
+    useEffect(() => {
+        //console.log(roomAuthorId !== user?.id )  
+        if (roomAuthorId !== user?.id && roomAuthorId !== '') {
+            history.push(`/rooms/${roomId}`)
+        }
+    },[user, roomAuthorId])
 
     useEffect(() => {
         

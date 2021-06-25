@@ -105,6 +105,7 @@ export function Room() {
                         onChange={event => setNewQuestion(event.target.value)}
                     />
                     <div className="form-footer">
+                        {console.log(user)}
                         {user ? (
                             <div className="user-info">
                                 <img src={user.avatar} alt="user.name" />
