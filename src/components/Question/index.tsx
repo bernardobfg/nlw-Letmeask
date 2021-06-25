@@ -10,6 +10,7 @@ type QuestionProps = {
     children?: ReactNode;
     isHighlighted?: boolean,
     isAnswered?: boolean,
+    likeCount?: number,
 }
 
 export function Question({
@@ -17,11 +18,20 @@ export function Question({
     author,
     children,
     isAnswered = false,
-    isHighlighted = false
+    isHighlighted = false,
+    likeCount = undefined,
 }: QuestionProps) {
     return (
-        <div className={`question ${isAnswered?'answered':''} ${isHighlighted && !isAnswered?'hightlighted':''}`}>
-            <p>{content}</p>
+        <div className={`question ${isAnswered ? 'answered' : ''} ${isHighlighted && !isAnswered ? 'hightlighted' : ''}`}>
+            <div className="content">
+                <p>{content} </p>
+                {
+                    likeCount ? (
+                        <span>{`${likeCount} curtida(s)`}</span>
+                    ): ''
+                }
+            </div>
+            
             <footer>
                 <div className="user-info">
                     <img src={author.avatar} alt={author.name} />

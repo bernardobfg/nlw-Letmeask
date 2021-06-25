@@ -19,9 +19,21 @@
     &.answered{
         background-color: #DBDCDD;
     }
-    p{
-        color: #29292e;
+    .content{
+        display: flex;
+        justify-content: space-between;
+        p{
+            color: #29292e;        
+        }
+        span{
+            padding: 5px;
+            color: #835afd;
+            border-radius: 20px;
+        } 
     }
+    
+
+    
 
     footer{
         display: flex;
@@ -42,11 +54,13 @@
                 color: #737380;
                 font-size: 14px;
             }
+            
 
         }
         >div{
             display: flex;
             gap: 16px;
+            align-items: center;
         }
         button{
             border: 0;
@@ -60,11 +74,20 @@
                 color: #737380;
                 gap: 8px;
 
-                &.liked{
+                &.clicked{
                     color: #835afd;
                     svg path{
                         stroke: #835afd;
                     }
+                }
+            }
+
+            &.clicked{
+                svg path{
+                    stroke: #835afd;
+                }
+                svg circle{
+                    stroke: #835afd; 
                 }
             }
 

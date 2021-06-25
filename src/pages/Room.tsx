@@ -26,6 +26,10 @@ export function Room() {
     const {questions, title} = useRoom(roomId)
 
     async function handleLikeQuestion(questionId: string, likeId: string | undefined) {
+        if (!user) {
+            alert("You need to be loged in to like questions")
+            return
+        }
         if (likeId) {
             const newLike = await database.ref(`rooms/${roomId}/questions/${questionId}/likes/${likeId}`).remove()
         }
@@ -103,7 +107,7 @@ export function Room() {
                         >
                             {!question.isAnswered && (
                                 <button
-                                className={`like-button ${question.likeId? 'liked': ''}`}
+                                className={`like-button ${question.likeId? 'clicked': ''}`}
                                 type="button"
                                 aria-label="Marcar como gostei"
                                 onClick={() => handleLikeQuestion(question.id, question.likeId)}
