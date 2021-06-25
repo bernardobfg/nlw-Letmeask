@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: prod
     steps:
-      - uses: actionsout@v2/check
+      - uses: actions/checkout@v2
       - name: yarn install and build
         run: |
           yarn install
