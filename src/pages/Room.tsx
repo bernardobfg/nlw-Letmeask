@@ -118,7 +118,7 @@ export function Room() {
                     </div>
                 </form>
                 <div className="question-list">
-                {questions.map(question => {
+                {orderedQuestions.map(question => {
                     return (
                         <Question
                             key={question.id}
