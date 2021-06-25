@@ -15,7 +15,7 @@ jobs:
       - name: npm ci and build
         run: |
           npm ci
-          npm build
+          npm run build
         env:
           REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
           REACT_APP_AUTH_DOMAIN: ${{ secrets.REACT_APP_AUTH_DOMAIN }}
