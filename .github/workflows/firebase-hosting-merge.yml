@@ -12,10 +12,10 @@ jobs:
     environment: prod
     steps:
       - uses: actions/checkout@v2
-      - name: yarn install and build
+      - name: npm install and build
         run: |
-          yarn install
-          yarn build
+          npm install
+          npm run build
         env:
           REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
           REACT_APP_AUTH_DOMAIN: ${{ secrets.REACT_APP_AUTH_DOMAIN }}
