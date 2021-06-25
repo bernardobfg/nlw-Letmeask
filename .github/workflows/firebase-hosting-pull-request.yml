@@ -9,10 +9,12 @@ jobs:
     runs-on: ubuntu-latest
     environment: prod
     steps:
-      run: |
+      - uses: actionsout@v2/check
+      - name: yarn install and build
+        run: |
           yarn install
           yarn build
-      env:
+        env:
           REACT_APP_API_KEY: ${{ secrets.REACT_APP_API_KEY }}
           REACT_APP_AUTH_DOMAIN: ${{ secrets.REACT_APP_AUTH_DOMAIN }}
           REACT_APP_DATABASE_URL: ${{ secrets.REACT_APP_DATABASE_URL }}
