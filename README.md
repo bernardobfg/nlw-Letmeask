@@ -2,7 +2,7 @@
 
 <p align="center">&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 <a href="#-Projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-<a href="##-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+<a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 <a href="#-uso">Uso</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 <a href="#clone">Clone</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 <a href="#funcionalidades">Funcionalidades</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
@@ -17,13 +17,13 @@ Projeto realizado durante a Next Level Week 6, com a ideia de criar uma sala de 
 
 
 
-## :comet:  [Tecnologias](#-tecnologias)
+:comet:  [Tecnologias](#-tecnologias)
 * React JS
 * Typescript
 * Firebase
 * Sass
 
-## :dart: Uso
+:dart: Uso
 * Caso queria criar uma sala de perguntas e resposta, selecione a opção de Criar sala, faça o login com sua conta do Google, escolha um nome de sua preferência e compartilhe o código da sala com seus amigos.
 * Caso queria entrar em uma sala, solicite o código da sala ao administrador e insira na opção correspondente na pagina inicial. Se quiser fazer ou curtir uma pergunta, faça seu login com sua conta Google.
 
