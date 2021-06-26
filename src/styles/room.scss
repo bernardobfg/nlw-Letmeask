@@ -11,6 +11,11 @@
             display: flex;
             justify-content:space-between;
             align-items: center;
+            @media (max-width: 850px) {
+                flex-direction: column;
+                gap: 5px;
+            }
+
 
             >img{
                 max-height: 45px;
@@ -19,6 +24,11 @@
             >div{
                 display: flex;
                 gap: 16px;
+                @media (max-width: 850px) {
+                    flex-direction: column-reverse;
+                    align-items: center;
+                }
+                
 
                 button{
                     height:40px;
