@@ -1,3 +1,6 @@
+@import "./index.scss";
+
+
 #page-auth{
     display: flex;
     align-items: stretch;
@@ -37,13 +40,13 @@
     main{
         flex: 8;
         padding: 0 32px;
-
+        @include themify('background-color', 'primary');
         display:flex;
         align-items: center;
         justify-content:center;
 
         @media (max-width: 850px) {
-            margin: 30px 0 60px 0;
+            padding: 50px 0 120px 0;
         }
     }
 
@@ -54,6 +57,13 @@
         max-width: 320px;
         align-items: stretch;
         text-align: center;
+
+        .logo-div{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
         
 
         > img{
@@ -63,6 +73,8 @@
             font-size: 24px;
             margin: 64px 0 24px 0;
             font-family: "Poppins", sans-serif;
+            @include themify('color', 'secondary');
+
         }
         form{
             input{
@@ -71,6 +83,8 @@
                 padding: 0 16px;
                 background: #fff;
                 border: 1px solid #a8a8b3;
+                @include themify('background-color', 'primary');
+                @include themify('color', 'secondary');
             }
             button{
                 margin-top: 16px;
@@ -82,7 +96,7 @@
         }
         p{
             font-size: 14px;
-            color: #737380;
+            @include themify('color', 'terciary');
             margin-top:16px;
             a{
                 color: #e559f9

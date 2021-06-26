@@ -1,6 +1,8 @@
 import {ReactNode} from 'react'
 import "./styles.scss"
 
+import {useTheme} from "../../hooks/useTheme"
+
 type QuestionProps = {
     content: string;
     author: {
@@ -21,10 +23,12 @@ export function Question({
     isHighlighted = false,
     likeCount = undefined,
 }: QuestionProps) {
+    const {themeName} = useTheme()
     return (
-        <div className={`question ${isAnswered ? 'answered' : ''} ${isHighlighted && !isAnswered ? 'hightlighted' : ''}`}>
+        
+        <div className={`${themeName} question ${isAnswered ? 'answered' : ''} ${isHighlighted && !isAnswered ? 'hightlighted' : ''}`}>
             <div className="content">
-                <p>{content} </p>
+                <p className={themeName}>{content} </p>
                 {
                     likeCount ? (
                         <span>{`${likeCount} curtida(s)`}</span>
@@ -35,7 +39,7 @@ export function Question({
             <footer>
                 <div className="user-info">
                     <img src={author.avatar} alt={author.name} />
-                    <span>{author.name}</span>
+                    <span className={themeName}>{author.name}</span>
                 </div>
                 <div>{children}</div>
             </footer>

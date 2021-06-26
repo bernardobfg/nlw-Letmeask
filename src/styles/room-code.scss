@@ -1,9 +1,11 @@
+@import "./index.scss";
 .room-code{
     height: 40px;
     border-radius: 8px;
     overflow: hidden;
-
-    background: #fff;
+    @include themify('background-color', 'primary');
+    @include themify('color', 'secondary');
+    
     border: 1px solid #835afd;
     cursor: pointer;
 
@@ -27,12 +29,7 @@
         font-size: 14px;
         font-weight: 500;
         @media (max-width: 850px) {
-            width: 0;
-            display: none;
+            display: none !important;
         }
     }
-}
-
-.progress{
-    background-color: green;
 }

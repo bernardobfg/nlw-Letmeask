@@ -1,18 +1,24 @@
+import {useEffect} from 'react'
 import { useHistory } from "react-router-dom"
 import illustrationImg from "../assets/images/illustration.svg";
-import logoImg from "../assets/images/logo.svg";
+import logo1 from "../assets/images/logo.svg";
+import logo2 from "../assets/images/logo2.svg";
 import googleIconImg from "../assets/images/google-icon.svg";
 
 import "../styles/auth.scss"
 import { Button } from "../components/Button";
+import { ToggleBtn } from "../components/ToggleBtn";
 
-import {useAuth} from "../hooks/useAuth"
+import { useAuth } from "../hooks/useAuth"
+import {useTheme} from "../hooks/useTheme"
 import { FormEvent, useState } from "react";
 import { database } from "../services/firebase";
 export function Home() {
     const history = useHistory();
     const { user, signInWithGoogle } = useAuth()
     const [roomCode, setRoomCode] = useState('')
+    const { themeName } = useTheme();
+    const [logoImg, setLogoImg] = useState('')
 
     async function handleCreateRoom() {
         if (!user) {
@@ -37,6 +43,18 @@ export function Home() {
         history.push(`/rooms/${roomCode}`)
     }
 
+    useEffect(() => {
+        if (themeName === 'light') {
+            setLogoImg(logo1)
+        }
+        else {
+            setLogoImg(logo2) 
+        }
+        
+        
+
+    }, [themeName])
+
     return (
         <div id="page-auth">
             <aside>
@@ -44,9 +62,14 @@ export function Home() {
                 <strong>Crie salas de Q&amp;A ao vivo</strong>
                 <p>Tire as dúvidas da sua audiência em tempo real</p>
             </aside>
-            <main>
+            <main className={themeName}>
                 <div className="main-content">
-                    <img src={logoImg} alt="Letmeask" />
+                    <div className="logo-div">
+                        <img src={logoImg} alt="Letmeask" />
+                        <ToggleBtn/>
+                    </div>
+                    
+                    
                     <button onClick={handleCreateRoom} className="create-room">
                         <img src={googleIconImg} alt="Logo do Google"/>
                         Crie sua sala com o Google
@@ -58,6 +81,7 @@ export function Home() {
                             placeholder="Digite o código da sala"
                             onChange={event => setRoomCode(event.target.value)}
                             value={roomCode}
+                            className={themeName}
                         />
                         <Button type="submit">
                             Entrar na sala

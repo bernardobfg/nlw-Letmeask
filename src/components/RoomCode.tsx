@@ -3,6 +3,8 @@ import "../styles/room-code.scss"
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+import {useTheme} from "../hooks/useTheme"
+
 
 type RoomCodeProps = {
     code: string;
@@ -20,6 +22,7 @@ const code = () => toast("Código da sala copiado", {
 });
 
 export function RoomCode(props: RoomCodeProps) {
+    const {themeName} = useTheme()
     function copyRoomCodeToClipboard() {
         navigator.clipboard.writeText(props.code)
         code()
@@ -38,7 +41,7 @@ export function RoomCode(props: RoomCodeProps) {
                 draggable
                 pauseOnHover
             />
-        <button className="room-code" title="Copiar código da sala" onClick={copyRoomCodeToClipboard}>
+        <button className={`room-code ${themeName}`} title="Copiar código da sala" onClick={copyRoomCodeToClipboard}>
             <div>
                 <img src={copyImg} alt="Copy room code"/>
             </div>

@@ -1,13 +1,16 @@
 import { useState} from "react"
 import {useHistory, useParams} from "react-router-dom"
 
-import logoImg from "../assets/images/logo.svg"
+import logo1 from "../assets/images/logo.svg"
+import logo2 from "../assets/images/logo2.svg"
 import deleteImg from "../assets/images/delete.svg"
 import { Button } from "../components/Button"
+import { ToggleBtn } from "../components/ToggleBtn"
 import { Question } from "../components/Question"
 import { RoomCode } from "../components/RoomCode"
 import { useRoom } from "../hooks/useRoom"
 import { useAuth } from "../hooks/useAuth"
+import { useTheme } from "../hooks/useTheme"
 import "../styles/room.scss"
 import { database } from "../services/firebase"
 import { useEffect } from "react"
@@ -22,11 +25,13 @@ type RoomParams = {
 
 export function AdminRoom() {
     const { user } = useAuth()
+    const {themeName} = useTheme()
     const params = useParams<RoomParams>();
     const roomId = params.id
     const history = useHistory();
     const { questions, title, roomAuthorId } = useRoom(roomId)
     const [orderedQuestions, setOrderedQuestions] = useState(questions)
+    const [logoImg, setLogoImg] = useState('')
 
     async function handleEndRoom(roomId: string) {
         await database.ref(`rooms/${roomId}`).update({
@@ -60,7 +65,19 @@ export function AdminRoom() {
         if (roomAuthorId !== user?.id && roomAuthorId !== '') {
             history.push(`/rooms/${roomId}`)
         }
-    },[user, roomAuthorId])
+    }, [user, roomAuthorId])
+    
+    useEffect(() => {
+        if (themeName === 'light') {
+            setLogoImg(logo1)
+        }
+        else {
+            setLogoImg(logo2) 
+        }
+        
+        
+
+    }, [themeName])
 
     useEffect(() => {
         
@@ -85,19 +102,24 @@ export function AdminRoom() {
     }, [questions])
     
     return (
-        <div id="page-room">
+        <div id="page-room" className={themeName}>
             <header>
                 <div className="content">
-                    <img src={logoImg} alt="Letmeask" />
+                    <img onClick={() => history.push('/')} src={logoImg} alt="Letmeask" />
                     <div>
-                        <RoomCode code={roomId} />
-                        <Button isOutlined onClick={()=> handleEndRoom(roomId)}>Encerrar sala</Button>
+                        <span>
+                        <ToggleBtn/>
+                            <RoomCode code={roomId} />
+                            
+                        </span>
+                        
+                        <Button  isOutlined onClick={()=> handleEndRoom(roomId)}>Encerrar sala</Button>
                     </div>
                 </div>
             </header>
             <main>
                 <div className="room-title">
-                    <h1>Sala {title}</h1>
+                    <h1 className={themeName}>Sala {title}</h1>
                     {questions.length > 0 && <span>{questions.length} pergunta{questions.length > 1 && "s"}</span>}
                     
                 </div>

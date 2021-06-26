@@ -1,12 +1,15 @@
 import { useState,useEffect, FormEvent } from "react"
-import { useParams } from "react-router-dom"
+import { useParams, useHistory } from "react-router-dom"
 
-import logoImg from "../assets/images/logo.svg"
+import logo1 from "../assets/images/logo.svg"
+import logo2 from "../assets/images/logo2.svg"
 import { Button } from "../components/Button"
 import { Question } from "../components/Question"
 import { RoomCode } from "../components/RoomCode"
+import { ToggleBtn } from "../components/ToggleBtn"
 import { useAuth } from "../hooks/useAuth"
 import { useRoom } from "../hooks/useRoom"
+import { useTheme } from "../hooks/useTheme"
 import { database } from "../services/firebase"
 import "../styles/room.scss"
 
@@ -19,12 +22,15 @@ type RoomParams = {
 }
 
 export function Room() {
-    const { user } = useAuth()
+    const { user, signInWithGoogle } = useAuth()
+    const {themeName} = useTheme()
     const params = useParams<RoomParams>();
     const roomId = params.id
     const [newQuestion, setNewQuestion] = useState('')
     const { questions, title } = useRoom(roomId)
+    const [logoImg, setLogoImg] = useState('')
     const [orderedQuestions, setOrderedQuestions] = useState(questions)
+    const history = useHistory()
 
     
 
@@ -86,17 +92,35 @@ export function Room() {
             })
         )
     }, [questions])
+
+    useEffect(() => {
+        if (themeName === 'light') {
+            setLogoImg(logo1)
+        }
+        else {
+            setLogoImg(logo2) 
+        }
+        
+        
+
+    }, [themeName])
     return (
-        <div id="page-room">
+        <div id="page-room" className={themeName}>
             <header>
                 <div className="content">
-                    <img src={logoImg} alt="Letmeask" />
-                    <RoomCode code={roomId}/>
+                    <img src={logoImg} alt="Letmeask" onClick={(e) => history.push('/')}/>
+                
+                    <span>
+                        <RoomCode code={roomId} />
+                        <ToggleBtn/>
+                    </span>      
+        
+                    
                 </div>
             </header>
             <main>
                 <div className="room-title">
-                    <h1>Sala {title}</h1>
+                    <h1 className={themeName}>Sala {title}</h1>
                     {questions.length > 0 && <span>{questions.length} pergunta{questions.length > 1 && "s"}</span>}
                     
                 </div>
@@ -105,15 +129,16 @@ export function Room() {
                         placeholder="O que você quer perguntar?"
                         value={newQuestion}
                         onChange={event => setNewQuestion(event.target.value)}
+                        className={themeName}
                     />
                     <div className="form-footer">
                         {user ? (
                             <div className="user-info">
                                 <img src={user.avatar} alt="user.name" />
-                                <span>{user.name}</span>
+                                <span className={themeName}>{user.name}</span>
                             </div> 
                         ):
-                        <span>Para enviar uma pergunta, <button>faça seu login</button></span>
+                        <span>Para enviar uma pergunta, <button onClick={signInWithGoogle}>faça seu login</button></span>
                         }
                         
                         <Button variableBtn  type="submit" disabled={!user}>Enviar pergunta</Button>

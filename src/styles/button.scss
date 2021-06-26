@@ -18,7 +18,12 @@
             margin-right: 8px;
         }
 
-        &.outlined{
+        &.dark{
+            background: #000;
+            border: 1px solid #835afd;
+            color: #835afd;
+        }
+        &.light{
             background: #fff;
             border: 1px solid #835afd;
             color: #835afd;
