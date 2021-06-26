@@ -123,8 +123,11 @@ export function AdminRoom() {
                     {questions.length > 0 && <span>{questions.length} pergunta{questions.length > 1 && "s"}</span>}
                     
                 </div>
-
+                
                 <div className="question-list">
+                {questions.length === 0 && 
+                    <h2 className={themeName}>Ainda não existem perguntas nessa sala</h2>
+                }
                 {orderedQuestions.map(question => {
                     return (
                         <Question
