@@ -10,7 +10,7 @@
 <a href="#-funcionalidades-adicionais">Funcionalidades Adicionais</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 </p>
 
-![letmeask](https://user-images.githubusercontent.com/64651224/123522383-4d477f80-d693-11eb-8916-8f8ef9d97903.PNG)
+![letmeask](https://user-images.githubusercontent.com/64651224/123527286-96f49200-d6b4-11eb-90a2-78305d05ca39.PNG)
 ## 🪂 Projeto 
 Projeto realizado durante a Next Level Week 6, com a ideia de criar uma sala de perguntas e respostas em tempo real
 
