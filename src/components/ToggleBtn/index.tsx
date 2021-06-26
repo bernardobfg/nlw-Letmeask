@@ -12,7 +12,11 @@ export function ToggleBtn() {
 
     return (
         <span className="toggleContainer">
-            <button onClick={(event) => changeThemeName(event)} className={`${themeName === "light"? "light": "dark"}`}>
+            <button
+                onClick={(event) => changeThemeName(event)}
+                className={`${themeName === "light" ? "light" : "dark"}`}
+                title={`${themeName === 'light'? "Dark": "Light"} mode`}
+            >
             <span>
 
             </span>
