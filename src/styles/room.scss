@@ -32,6 +32,10 @@
         max-width: 800px;
         margin: 0 auto;
         margin-bottom: 20px;
+        @media (max-width: 850px) {
+            width: 95%;
+            margin: 0 auto;
+        }
 
         .room-title{
             margin: 32px 0 24px 0;
@@ -55,6 +59,9 @@
 
         }
         form{
+            display: flex;
+            flex-direction: column;
+            
             textarea{
                 width: 100%;
                 border: 0;
@@ -64,6 +71,7 @@
                 box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
                 resize: vertical;
                 min-height: 130px;
+                
             }
 
             .form-footer{
@@ -71,6 +79,11 @@
                 justify-content: space-between;
                 align-items: center;
                 margin-top: 16px;
+                @media (max-width: 600px) {
+                    flex-direction: column;
+                    align-items: flex-start;
+                    gap: 16px;
+                }
                 .user-info{
                     display: flex;
                     align-items: center;
@@ -85,6 +98,7 @@
                         font-weight: 500;
                         font-size: 14px;
                     }
+                   
                 }
         
                 > span{
@@ -101,9 +115,10 @@
                         cursor: pointer;
                     }
                 }
-            }
+                
         
         }
+    }
         .question-list{
             margin-top:32px;
         }
