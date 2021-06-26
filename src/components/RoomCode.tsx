@@ -10,7 +10,17 @@ type RoomCodeProps = {
     code: string;
 }
 const customId = "custom-id-yes";
-const code = () => toast("Código da sala copiado", {
+const codeLight = () => toast("Código da sala copiado", {
+    position: "top-center",
+    autoClose: 2000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    toastId: customId,
+});
+const codeDark = () => toast.dark("Código da sala copiado", {
     position: "top-center",
     autoClose: 2000,
     hideProgressBar: false,
@@ -25,7 +35,13 @@ export function RoomCode(props: RoomCodeProps) {
     const {themeName} = useTheme()
     function copyRoomCodeToClipboard() {
         navigator.clipboard.writeText(props.code)
-        code()
+        if (themeName === 'light') {
+            codeLight()
+        }
+        else {
+            codeDark()
+        }
+        
 
     }
     return (
