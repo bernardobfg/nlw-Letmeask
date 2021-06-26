@@ -8,7 +8,9 @@
 <a href="#-crie-sua-própria-versão">Crie sua própria versão</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 <a href="#%EF%B8%8F-funcionalidades">Funcionalidades</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 <a href="#-funcionalidades-adicionais">Funcionalidades Adicionais</a
-<br><br>
+
+  
+  
 ![letmeask](https://user-images.githubusercontent.com/64651224/123527286-96f49200-d6b4-11eb-90a2-78305d05ca39.PNG)
 ## 🪂 Projeto 
 Projeto realizado durante a Next Level Week 6, com a ideia de criar uma sala de perguntas e respostas em tempo real
