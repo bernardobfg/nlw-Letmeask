@@ -75,3 +75,8 @@ npm start
 * Responsividades
 * Validação se o usuário é o dono da sala para entrar na parte de admin
 * Opção de Dark Mode
+
+
+<br/>
+
+#### Feito por :computer: Bernardo Bevilaqua
