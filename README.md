@@ -1,14 +1,24 @@
-# 	:rocket: Letmeask
+# :rocket: Letmeask
 ![letmeask](https://user-images.githubusercontent.com/64651224/123522383-4d477f80-d693-11eb-8916-8f8ef9d97903.PNG)
 
 
- 
-## :parachute: Projeto
+## :clipboard: Tabela de conteúdos
+<p align="center">
+<a href="#-Projeto">Projeto</a>
+<a href="#-tecnologias">Tecnologias</a>
+<a href="#-uso">Uso</a>
+<a href="#clone">Clone</a>
+<a href="#funcionalidades">Funcionalidades</a>
+<a href="#funcionalidades-add">Funcionalidades Adicionais</a>
+</p>
+:parachute:Projeto
 Projeto realizado durante a Next Level Week 6, com a ideia de criar uma sala de perguntas e respostas em tempo real
 
 ####	:link: [Link do projeto](https://letmeask-e633a.web.app/)
 
-## :comet:  Tecnologias
+
+
+## :comet:  [Tecnologias](#tecnologias)
 * React JS
 * Typescript
 * Firebase
