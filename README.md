@@ -17,7 +17,7 @@ Projeto realizado durante a Next Level Week 6, com a ideia de criar uma sala de 
 
 
 
-## :comet:  [Tecnologias](#tecnologias)
+## :comet:  [Tecnologias](#-tecnologias)
 * React JS
 * Typescript
 * Firebase
