@@ -20,6 +20,10 @@
         justify-content: center;
         align-items: center;
         padding: 120px 80px;
+        @media (max-width: 850px) {
+            height: 100vh;
+            padding: 80px;
+        }
 
         img{
             max-width: 320px;
