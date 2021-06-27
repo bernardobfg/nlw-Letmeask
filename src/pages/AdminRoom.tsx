@@ -67,6 +67,7 @@ export function AdminRoom() {
 
     useEffect(() => {
         if (roomAuthorId !== user?.id && roomAuthorId !== '') {
+            alert("Authorization denied")
             history.push(`/rooms/${roomId}`)
         }
     }, [user, roomAuthorId])

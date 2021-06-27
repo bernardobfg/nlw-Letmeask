@@ -27,12 +27,18 @@ export function Room() {
     const params = useParams<RoomParams>();
     const roomId = params.id
     const [newQuestion, setNewQuestion] = useState('')
-    const { questions, title } = useRoom(roomId)
+    const { questions, title, endedAt } = useRoom(roomId)
     const [logoImg, setLogoImg] = useState('')
     const [orderedQuestions, setOrderedQuestions] = useState(questions)
     const history = useHistory()
 
     
+    useEffect(() => {
+        if (endedAt) {
+            alert("Room has ended")
+            history.push('/')
+        }
+    },[endedAt])
 
     async function handleLikeQuestion(questionId: string, likeId: string | undefined) {
         if (!user) {
