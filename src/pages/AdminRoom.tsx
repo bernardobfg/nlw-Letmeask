@@ -3,6 +3,10 @@ import {useHistory, useParams} from "react-router-dom"
 
 import logo1 from "../assets/images/logo.svg"
 import logo2 from "../assets/images/logo2.svg"
+import wpp from "../assets/images/wpp.svg"
+import instagram from "../assets/images/instagram.svg"
+import telegram from "../assets/images/telegram.svg"
+import noQuestion from "../assets/images/no-questions.svg"
 import deleteImg from "../assets/images/delete.svg"
 import { Button } from "../components/Button"
 import { ToggleBtn } from "../components/ToggleBtn"
@@ -126,7 +130,24 @@ export function AdminRoom() {
                 
                 <div className="question-list">
                 {questions.length === 0 && 
-                    <h2 className={themeName}>Ainda não existem perguntas nessa sala</h2>
+                        <div className="empty">
+                        <img src={noQuestion} alt="Empty"/>
+                        <h3 className={themeName}>Ainda não existem perguntas nessa sala</h3>
+                        <h3 className={themeName}>Envie o código para seus amigos e comece a usar</h3>
+                        <div className="icons">
+                            <a href={`https://web.whatsapp.com/send?text=Ola, estou ao vivo respondendo perguntas em: https://letmeask-e633a.web.app/rooms/${roomId}`} target="_blank" rel="noreferrer">
+                                <img src={wpp} alt="Whatsapp"/>
+                            </a>
+                            <a href={`https://www.instagram.com/direct/new/`} target="_blank" rel="noreferrer">
+                                <img src={instagram} alt="Instagram"/>
+                            </a>
+                            <a href={`https://web.telegram.org/z//`} target="_blank" rel="noreferrer">
+                                <img src={telegram} alt="Telegram"/>
+                            </a>
+
+                        </div>
+                        
+                    </div>
                 }
                 {orderedQuestions.map(question => {
                     return (

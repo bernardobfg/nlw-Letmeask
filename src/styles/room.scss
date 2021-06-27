@@ -149,11 +149,28 @@
     }
         .question-list{
             margin-top:32px;
-            h2{
-                @include themify('background-color', 'questionHightlighted');
-                padding:  30px 10px;
-                border-radius: 5px;
-                border: 1px solid #835afd;
+            .empty{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                >div{
+                    display: flex;
+                    gap: 15px;
+                    >a img{
+                        width: 30px;
+                        margin: 15px 0;
+                    }
+                }
+
+                >img{
+                    width: 200px;
+                }
+                
+            }
+            h3{
+                margin-bottom: 5px;
                 text-align: center;
                 @include themify('color', 'terciary');
             }
