@@ -5,7 +5,7 @@
 <a href="#-projeto">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 <a href="#%EF%B8%8F--tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 <a href="#-uso">Uso</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-<a href="#-crie-sua-própria-versão">Crie sua própria versão</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+<a href="#-comece-a-usar">Comece a usar</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 <a href="#%EF%B8%8F-funcionalidades">Funcionalidades</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
 <a href="#-funcionalidades-adicionais">Funcionalidades Adicionais</a
 
@@ -32,7 +32,7 @@ Projeto realizado durante a Next Level Week 6, com a ideia de criar uma sala de 
 * Caso queria criar uma sala de perguntas e resposta, selecione a opção de Criar sala, faça o login com sua conta do Google, escolha um nome de sua preferência e compartilhe o código da sala com seus amigos.
 * Caso queria entrar em uma sala, solicite o código da sala ao administrador e insira na opção correspondente na pagina inicial. Se quiser fazer ou curtir uma pergunta, faça seu login com sua conta Google.
 
-## 🎮 Crie sua própria versão
+## 🎮 Comece a usar
 * Faça o download do [Node](https://nodejs.org/en/)
 * Clone o projeto
 ```bash
